@@ -177,7 +177,7 @@ class PushNotification {
     setShowPushnotificationAlert(showPushnotificationAlert: boolean) {
         PushwooshModule.setShowPushnotificationAlert(showPushnotificationAlert);
     }
-    
+
     //Function: getShowPushnotificationAlert
     //Show push notifications alert when push notification is received while the app is running, default is `true`
     //
@@ -190,7 +190,7 @@ class PushNotification {
     getShowPushnotificationAlert(callback: Function) {
         PushwooshModule.getShowPushnotificationAlert(callback);
     }
-    
+
 	//Function: getPushToken
 	//Call this to get push token if it is available. Note the token also comes in registerDevice function callback.
 	//
@@ -222,6 +222,14 @@ class PushNotification {
 		PushwooshModule.getHwid(success);
 	}
 
+	getHwidPromise(success: Function) {
+		return new Promise((resolve) => {
+			PushwooshModule.getHwid(success => {
+				resolve(success)
+			});
+		})
+	}
+
 	//Function: setUserId
 	//[android, ios] Set User indentifier. This could be Facebook ID, username or email, or any other user ID.
 	//This allows data and events to be matched across multiple user devices.
@@ -239,7 +247,7 @@ class PushNotification {
 	//Parameters:
 	// "event" - event to trigger
 	// "attributes" - object with additional event attributes
-	// 
+	//
 	// Example:
 	//(start code)
 	// Pushwoosh.setUserId("XXXXXX");
@@ -275,7 +283,7 @@ class PushNotification {
 	getApplicationIconBadgeNumber(callback: Function) {
 		PushwooshModule.getApplicationIconBadgeNumber(callback);
 	}
-	
+
 	//Function: addToApplicationIconBadgeNumber
 	//[android, ios] Adds value to the application icon badge
 	//
@@ -408,7 +416,7 @@ class PushNotification {
 	//
 	//Example:
 	//(start code)
-	//	Pushwoosh.presentInboxUI({ 
+	//	Pushwoosh.presentInboxUI({
 	//   "dateFormat" : "dd.MMMM.YYYY",
 	//   "defaultImageIcon" : Image.resolveAssetSource(require('./icon.png')),
 	//   "listErrorImage" : Image.resolveAssetSource(require('./error.png')),
@@ -451,7 +459,7 @@ class PushNotification {
 		PushwooshModule.isCommunicationEnabled(success);
 	}
 
-	// Return flag is enabled GDPR on server	
+	// Return flag is enabled GDPR on server
 	isAvailableGDPR(success: Function){
 		PushwooshModule.isAvailableGDPR(success);
 	}
