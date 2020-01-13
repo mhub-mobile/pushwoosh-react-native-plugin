@@ -47,6 +47,16 @@ class PushNotification {
 		PushwooshModule.init(config, success, fail);
 	}
 
+	initPromise(config: Object) {
+		return new Promise((resolve, reject) => {
+			PushwooshModule.init(config, success => {
+				resolve(success)
+			}, error => {
+				reject(error)
+			});
+		})
+	}
+
     //Function: createLocalNotification
 	//Creates a local notification with a specified message, delay and custom data
 	//
@@ -98,6 +108,16 @@ class PushNotification {
 		PushwooshModule.register(success, fail);
 	}
 
+	registerPromise() {
+		return new Promise((resolve, reject) => {
+			PushwooshModule.register(success => {
+				resolve(success)
+			}, error => {
+				reject(error)
+			});
+		})
+	}
+
 	//Function: unregister
 	//Unregisters device from push notifications
 	unregister(success: ?Function, fail: ?Function) {
@@ -108,6 +128,16 @@ class PushNotification {
 			fail = function(error) {};
 		}
 		PushwooshModule.unregister(success, fail);
+	}
+
+	unregisterPromise() {
+		return new Promise((resolve, reject) => {
+			PushwooshModule.unregister(success => {
+				resolve(success)
+			}, error => {
+				reject(error)
+			});
+		})
 	}
 
 	//Function: onPushOpen
@@ -144,6 +174,16 @@ class PushNotification {
 		PushwooshModule.setTags(tags, success, fail);
 	}
 
+	setTagsPromise(tags: Object) {
+		return new Promise((resolve, reject) => {
+			PushwooshModule.setTags(tags, success => {
+				resolve(success)
+			}, error => {
+				reject(error)
+			});
+		})
+	}
+
 	//Function: getTags
 	//Call this to get tags for the device
 	//
@@ -165,6 +205,16 @@ class PushNotification {
 			fail = function(error) {};
 		}
 		PushwooshModule.getTags(success, fail);
+	}
+
+	getTagsPromise() {
+		return new Promise((resolve, reject) => {
+			PushwooshModule.getTags(success => {
+				resolve(success)
+			}, error => {
+				reject(error)
+			});
+		})
 	}
 
     //Function: setShowPushnotificationAlert
@@ -207,6 +257,14 @@ class PushNotification {
 		PushwooshModule.getPushToken(success);
 	}
 
+	getPushTokenPromise() {
+		return new Promise((resolve) => {
+			PushwooshModule.getPushToken(success => {
+				resolve(success)
+			});
+		})
+	}
+
 	//Function: getHwid
 	//Call this to get Pushwoosh HWID used for communications with Pushwoosh API
 	//
@@ -222,7 +280,7 @@ class PushNotification {
 		PushwooshModule.getHwid(success);
 	}
 
-	getHwidPromise(success: Function) {
+	getHwidPromise() {
 		return new Promise((resolve) => {
 			PushwooshModule.getHwid(success => {
 				resolve(success)
