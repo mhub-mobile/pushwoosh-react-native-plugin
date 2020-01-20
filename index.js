@@ -544,7 +544,7 @@ class PushNotification {
 		PushwooshModule.removeAllDeviceData(success, fail);
 	}
 
-	removeAllDeviceData() {
+	removeAllDeviceDataPromise() {
 		return new Promise((resolve, reject) => {
 			PushwooshModule.removeAllDeviceData(success => {
 				resolve(success)
