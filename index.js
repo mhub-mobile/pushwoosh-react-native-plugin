@@ -544,6 +544,16 @@ class PushNotification {
 		PushwooshModule.removeAllDeviceData(success, fail);
 	}
 
+	removeAllDeviceData() {
+		return new Promise((resolve, reject) => {
+			PushwooshModule.removeAllDeviceData(success => {
+				resolve(success)
+			}, error => {
+				reject(error)
+			});
+		})
+	}
+
 	// Set notification icon background color
 	setNotificationIconBackgroundColor(color: string) {
 		PushwooshModule.setNotificationIconBackgroundColor(color);
