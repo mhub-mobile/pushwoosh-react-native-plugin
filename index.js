@@ -357,6 +357,14 @@ class PushNotification {
 		PushwooshModule.addToApplicationIconBadgeNumber(badgeNumber);
 	}
 
+	getApplicationIconBadgeNumberPromise() {
+		return new Promise((resolve, reject) => {
+			PushwooshModule.getApplicationIconBadgeNumber(badge => {
+				resolve(badge)
+			});
+		})
+	}
+	
 	//Function: setMultiNotificationMode
 	//[android] Allows multiple notifications to be displayed in the Android Notification Center
 	setMultiNotificationMode(on: boolean) {
