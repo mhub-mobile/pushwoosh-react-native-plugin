@@ -476,7 +476,7 @@ RCT_EXPORT_METHOD(clearLocalNotification){
 }
 
 - (NSArray<NSString *> *)supportedEvents {
-	return @[ kPushOpenJSEvent ];
+	return @[ kPushOpenJSEvent, kPushReceivedJSEvent ];
 }
 
 @end
