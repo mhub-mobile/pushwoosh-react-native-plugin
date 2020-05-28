@@ -37,4 +37,10 @@ public class PushwooshNotificationServiceExtension extends NotificationServiceEx
 		super.startActivityForPushMessage(pushMessage);
 		PushwooshPlugin.openPush(pushMessage.toJson().toString());
 	}
+
+	@Override
+	protected void onMessageOpened(final PushMessage pushMessage) {
+		super.startActivityForPushMessage(pushMessage);
+		PushwooshPlugin.openPush(pushMessage.toJson().toString());
+	}
 }
